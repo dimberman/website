@@ -12,8 +12,8 @@ Today, we are excited to announce the Kubernetes Airflow Operator; a mechanism f
 
 Apache Airflow is one realization of the DevOps philosophy of "Configuration As Code." Airflow allows users to launch multi-step pipelines using a simple Python object DAG (Directed Acyclic Graph). You can define dependencies, programmatically construct complex workflows, and monitor scheduled jobs in an easy to read UI.
 
-<img src="/images/blog/2018-05-25-Airflow-Kubernetes-Operator/2018-05-25-airflow_dags.png" width="85%" alt="Airflow DAGs" />
-<img src="/images/blog/2018-05-25-Airflow-Kubernetes-Operator/2018-05-25-airflow.png" width="85%" alt="Airflow UI" />
+<img src="/images/blog/2018-06-28-Airflow-Kubernetes-Operator/2018-06-28-airflow_dags.png" width="85%" alt="Airflow DAGs" />
+<img src="/images/blog/2018-06-28-Airflow-Kubernetes-Operator/2018-06-28-airflow.png" width="85%" alt="Airflow UI" />
 
 ## Why Airflow on Kubernetes?
 
@@ -40,7 +40,7 @@ Handling sensitive data is a core responsibility of any DevOps engineer. At ever
 
 # Architecture
 
-<img src="/images/blog/2018-05-25-Airflow-Kubernetes-Operator/2018-05-25-airflow-architecture.png" width="85%" alt="Airflow Architecture" />
+<img src="/images/blog/2018-06-28-Airflow-Kubernetes-Operator/2018-06-28-airflow-architecture.png" width="85%" alt="Airflow Architecture" />
 
 The Kubernetes Operator uses the [Kubernetes Python Client](https://github.com/kubernetes-client/Python) to generate a request that is processed by the APIServer (1). Kubernetes will then launch your pod with whatever specs you've defined (2). Images will be loaded with all the necessary environment variables, secrets and dependencies, enacting a single command. Once the job is launched, the operator only needs to monitor the health of track logs (3). Users will have the choice of gathering logs locally to the scheduler or to any distributed logging service currently in their Kubernetes cluster.
 
@@ -101,7 +101,7 @@ failing = KubernetesPodOperator(namespace='default',
 passing.set_upstream(start)
 failing.set_upstream(start)
 ```
-<img src="/images/blog/2018-05-25-Airflow-Kubernetes-Operator/2018-05-25-basic-dag-run.png" width="85%" alt="Basic DAG Run" />
+<img src="/images/blog/2018-06-28-Airflow-Kubernetes-Operator/2018-06-28-basic-dag-run.png" width="85%" alt="Basic DAG Run" />
 
 ## But how does this relate to my workflow?
 
